@@ -1,3 +1,5 @@
+const CLOSED = ' ';
+
 class Minesweeper {
   constructor(board) {
     this.board = board;
@@ -13,7 +15,7 @@ class Minesweeper {
         .map(
           (row) =>
             '|' +
-            row.map((square) => (square === 1 ? 'X' : ' ')).join('|') +
+            row.map((square) => (square === 1 ? 'X' : CLOSED)).join('|') +
             '|'
         )
         .join('\n+-+-+-+\n') +
