@@ -120,7 +120,7 @@ so that I can continue to clear the board.
   Then the board should contain an empty sign on the square
 ```
 
-### US5 🚧
+### US5 ✅
 
 ```
 As a player,
