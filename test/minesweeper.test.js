@@ -169,5 +169,22 @@ describe('Minesweeper', () => {
       // then
       expect(state).toBe('IN_PROGRESS');
     });
+
+    test('GIVEN a step on a bomb WHEN checking game state THEN the result should be "LOSE"', () => {
+      // given
+      const bombs = [
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0],
+      ];
+      const minesweeper = new Minesweeper(bombs);
+      minesweeper.step(1, 1);
+
+      // when
+      const state = minesweeper.getState();
+
+      // then
+      expect(state).toBe('LOSE');
+    });
   });
 });
