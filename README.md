@@ -88,7 +88,7 @@ so that I can prevent stepping on it.
   Then the board should contain a mark sign on the square
 ```
 
-### US4 🚧
+### US4 ✅
 
 ```
 As a player,
