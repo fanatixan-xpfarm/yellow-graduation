@@ -128,7 +128,7 @@ I want the game to automatically reveal all adjacent squares when stepping on a 
 so that I can continue to clear the board.
 ```
 
-#### UAT5.1 🚧
+#### UAT5.1 ✅
 
 ```
   Given an empty square
