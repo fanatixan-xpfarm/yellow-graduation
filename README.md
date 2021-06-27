@@ -32,7 +32,7 @@ You don't have to mark all the bombs to win; you just need to open all non-bomb 
 
 ## Backlog
 
-### US1 🚧
+### US1 ✅
 
 ```
 As a player,
