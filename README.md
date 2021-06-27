@@ -72,7 +72,7 @@ so that I can start a new game.
   Then the board should contain a bomb sign only on that square
 ```
 
-### US3 ⚠
+### US3 🚧
 
 ```
 As a player,
@@ -80,7 +80,7 @@ I want to mark a square as bomb,
 so that I can prevent stepping on it.
 ```
 
-#### UAT3.1 ⚠
+#### UAT3.1 🚧
 
 ```
   Given a non-open square

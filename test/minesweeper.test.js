@@ -40,4 +40,20 @@ describe('Minesweeper', () => {
       }
     );
   });
+
+  describe('US3 - Marking squares', () => {
+    test.each`
+      bombs                                | bombsReadable | markRow | markColumn | expectedBoard
+      ${[[0, 0, 0], [0, 1, 0], [0, 0, 0]]} | ${'1;1'}      | ${1}    | ${1}       | ${'+-+-+-+\n| | | |\n+-+-+-+\n| |*| |\n+-+-+-+\n| | | |\n+-+-+-+'}
+    `(
+      'GIVEN bombs at $bombsReadable WHEN stepping on $stepRow;$stepColumn THEN the board should be \n$expectedBoard',
+      ({ bombs, markRow, markColumn, expectedBoard }) => {
+        // given
+        const minesweeper = new Minesweeper(bombs);
+
+        // when
+        minesweeper.mark(markRow, markColumn);
+      }
+    );
+  });
 });
