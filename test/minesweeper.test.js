@@ -203,5 +203,30 @@ describe('Minesweeper', () => {
       // then
       expect(state).toBe('WIN');
     });
+
+    test('GIVEN all non-bombs opened and all bombs are marked WHEN checking game state THEN the result should be "WIN"', () => {
+      // given
+      const bombs = [
+        [0, 0, 0],
+        [1, 1, 0],
+        [0, 1, 0],
+      ];
+      const minesweeper = new Minesweeper(bombs);
+      minesweeper.mark(1, 0);
+      minesweeper.mark(1, 1);
+      minesweeper.mark(2, 1);
+      minesweeper.step(0, 0);
+      minesweeper.step(0, 1);
+      minesweeper.step(0, 2);
+      minesweeper.step(1, 2);
+      minesweeper.step(2, 0);
+      minesweeper.step(2, 2);
+
+      // when
+      const state = minesweeper.getState();
+
+      // then
+      expect(state).toBe('WIN');
+    });
   });
 });
