@@ -39,8 +39,8 @@
 - US5: revealing neighbors of squares with 0 neighbors ✅
   - UAT5.1: all neighbors are revealed ✅
   - UAT5.2: all neighbors are revealed recursively ✅
-- US6: getting game state ⚠
-  - UAT6.1: game state is in progress for new board ⚠
+- US6: getting game state 🚧
+  - UAT6.1: game state is in progress for new board 🚧
   - UAT6.2: game state is lose after stepping on bomb ⚠
   - UAT6.1: game state is win after opening all non-bomb squares ⚠
   - UAT6.1: game state is in progress if no bomb steps occured and there are unrevealed squares ⚠

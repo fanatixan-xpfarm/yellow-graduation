@@ -144,7 +144,7 @@ so that I can continue to clear the board.
   Then all neighboring squares should be revealed recursively on the board
 ```
 
-### US6 ⚠
+### US6 🚧
 
 ```
 As a player,
@@ -152,7 +152,7 @@ I want to know the game state,
 so that I can start a new game after it ended.
 ```
 
-#### UAT6.1 ⚠
+#### UAT6.1 🚧
 
 ```
   Given a new game

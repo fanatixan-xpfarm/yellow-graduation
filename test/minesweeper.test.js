@@ -152,4 +152,19 @@ describe('Minesweeper', () => {
       }
     );
   });
+
+  describe('US6 - Checking game state', () => {
+    test('GIVEN a new game WHEN checking game state THEN the result should be "IN_PROGRESS"', () => {
+      // given
+      const bombs = [
+        [0, 0, 1],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      const minesweeper = new Minesweeper(bombs);
+
+      // when
+      minesweeper.getState();
+    });
+  });
 });
