@@ -54,6 +54,8 @@ class Minesweeper {
   step(row, column) {
     this.board[row][column].stepped = true;
   }
+
+  mark() {}
 }
 
 module.exports = Minesweeper;
