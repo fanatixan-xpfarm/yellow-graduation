@@ -136,7 +136,7 @@ so that I can continue to clear the board.
   Then all neighbors should be revealed on the board
 ```
 
-#### UAT5.2 🚧
+#### UAT5.2 ✅
 
 ```
   Given an empty square with a neighboring to an empty square
