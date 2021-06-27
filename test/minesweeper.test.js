@@ -33,5 +33,22 @@ describe('Minesweeper', () => {
         '+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+'
       );
     });
+
+    test('GIVEN a bomb at 0;0 WHEN stepping on 0;0 THEN the board should be \n+-+-+-+\n|X| | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+', () => {
+      // given
+      const minesweeper = new Minesweeper([
+        [1, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ]);
+
+      // when
+      minesweeper.step(1, 1);
+
+      // then
+      expect(minesweeper.print()).toBe(
+        '+-+-+-+\n|X| | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+'
+      );
+    });
   });
 });
