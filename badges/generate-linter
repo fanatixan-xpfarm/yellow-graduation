@@ -1,0 +1,49 @@
+#!/bin/bash
+
+npx eslint src/** test/** -o badges/eslint-report.json -f json
+
+node << EOS > badges/linter.json
+
+function aggregateProblems(problems, fileReport) {
+  return {
+    errorCount: (problems.errorCount || 0) + fileReport.errorCount,
+    warningCount: (problems.warningCount || 0) + fileReport.warningCount
+  };
+}
+
+function color(problems) {
+  if (problems.errorCount > 0) {
+    return 'red';
+  }
+
+  if (problems.warningCount > 0) {
+    return 'orange';
+  }
+
+  return 'green';
+}
+
+function plural(word, count) {
+  const statement = count + ' ' + word;
+
+  if (count === 1) {
+    return statement;
+  }
+
+  return statement + 's';
+}
+
+const linterReport = require('./badges/eslint-report.json');
+const summary = linterReport.reduce(aggregateProblems, {});
+const message = plural('error', summary.errorCount) + ', ' + plural('warning', summary.warningCount);
+
+const badge = {
+  schemaVersion: 1,
+  label: 'linter',
+  message,
+  color: color(summary)
+};
+
+console.log(JSON.stringify(badge));
+EOS
+
