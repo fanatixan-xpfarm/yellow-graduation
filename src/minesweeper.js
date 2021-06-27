@@ -108,6 +108,12 @@ class Minesweeper {
 
   step(row, column) {
     this.board[row][column].opened = true;
+    if (
+      !this.board[row][column].bomb &&
+      this.board[row][column].neighboringBombs === 0
+    ) {
+      this.step(row, column + 1);
+    }
   }
 
   mark(row, column) {
