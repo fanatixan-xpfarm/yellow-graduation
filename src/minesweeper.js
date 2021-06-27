@@ -33,29 +33,34 @@ class Minesweeper {
   }
 
   toBoardSquare(bombs, row, column) {
-    const bombsSquare = bombs[row][column];
-
     let neighboringBombs = 0;
 
     for (let neighbor of NEIGHBORS) {
       const r = row + neighbor.rowOfset;
       const c = column + neighbor.columnOfset;
-      if (r >= 0 && r < 3 && c >= 0 && c < 3 && this.isBomb(bombs[r][c])) {
+      if (this.isBomb(bombs, r, c)) {
         neighboringBombs++;
       }
     }
 
     return {
-      bomb: this.isBomb(bombsSquare),
+      bomb: this.isBomb(bombs, row, column),
       opened: false,
       marked: false,
       neighboringBombs,
     };
   }
 
-  isBomb(square) {
-    return square === 1;
+  isBomb(bombs, row, column) {
+    return (
+      row >= 0 &&
+      row < 3 &&
+      column >= 0 &&
+      column < 3 &&
+      bombs[row][column] === 1
+    );
   }
+
   print() {
     return (
       ROW_SEPARATOR +
