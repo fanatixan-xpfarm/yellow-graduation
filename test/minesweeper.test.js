@@ -164,7 +164,10 @@ describe('Minesweeper', () => {
       const minesweeper = new Minesweeper(bombs);
 
       // when
-      minesweeper.getState();
+      const state = minesweeper.getState();
+
+      // then
+      expect(state).toBe('IN_PROGRESS');
     });
   });
 });
