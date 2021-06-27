@@ -77,5 +77,26 @@ describe('Minesweeper', () => {
         expect(minesweeper.print()).toBe(expectedBoard);
       }
     );
+
+    test('GIVEN marked bombs at 1;0, 1;1, and 2;1 WHEN stepping on 2;0 THEN the board should be \n+-+-+-+\n| | | |\n+-+-+-+\n|*|*| |\n+-+-+-+\n|3|*| |\n+-+-+-+', () => {
+      // given
+      const bombs = [
+        [0, 0, 0],
+        [1, 1, 0],
+        [0, 1, 0],
+      ];
+      const minesweeper = new Minesweeper(bombs);
+      minesweeper.mark(1, 0);
+      minesweeper.mark(1, 1);
+      minesweeper.mark(2, 1);
+
+      // when
+      minesweeper.step(2, 0);
+
+      // then
+      expect(minesweeper.print()).toBe(
+        '+-+-+-+\n| | | |\n+-+-+-+\n|*|*| |\n+-+-+-+\n|3|*| |\n+-+-+-+'
+      );
+    });
   });
 });
