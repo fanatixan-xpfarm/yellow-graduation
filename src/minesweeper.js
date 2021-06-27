@@ -10,10 +10,6 @@ class Minesweeper {
     this.board = board;
   }
   print() {
-    if (!this.stepped) {
-      return '+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+';
-    }
-
     return (
       ROW_SEPARATOR +
       NEW_LINE +
