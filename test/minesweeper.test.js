@@ -170,7 +170,7 @@ describe('Minesweeper', () => {
       expect(state).toBe('IN_PROGRESS');
     });
 
-    test('GIVEN a step on a bomb WHEN checking game state THEN the result should be "LOSE"', () => {
+    test('GIVEN a step on a bomb WHEN checking game state THEN the result should be "LOSE" with board\n+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+', () => {
       // given
       const bombs = [
         [0, 0, 0],
@@ -185,9 +185,12 @@ describe('Minesweeper', () => {
 
       // then
       expect(state).toBe('LOSE');
+      expect(minesweeper.print()).toBe(
+        '+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+'
+      );
     });
 
-    test('GIVEN all non-bombs opened WHEN checking game state THEN the result should be "WIN"', () => {
+    test('GIVEN all non-bombs opened WHEN checking game state THEN the result should be "WIN" with board\n+-+-+-+\n|_|1| |\n+-+-+-+\n|_|1|1|\n+-+-+-+\n|_|_|_|\n+-+-+-+', () => {
       // given
       const bombs = [
         [0, 0, 1],
@@ -202,9 +205,12 @@ describe('Minesweeper', () => {
 
       // then
       expect(state).toBe('WIN');
+      expect(minesweeper.print()).toBe(
+        '+-+-+-+\n|_|1| |\n+-+-+-+\n|_|1|1|\n+-+-+-+\n|_|_|_|\n+-+-+-+'
+      );
     });
 
-    test('GIVEN all non-bombs opened and all bombs are marked WHEN checking game state THEN the result should be "WIN"', () => {
+    test('GIVEN all non-bombs opened and all bombs are marked WHEN checking game state THEN the result should be "WIN" with board \n+-+-+-+\n|2|2|1|\n+-+-+-+\n|*|*|2|\n+-+-+-+\n|3|*|2|\n+-+-+-+', () => {
       // given
       const bombs = [
         [0, 0, 0],
@@ -227,6 +233,9 @@ describe('Minesweeper', () => {
 
       // then
       expect(state).toBe('WIN');
+      expect(minesweeper.print()).toBe(
+        '+-+-+-+\n|2|2|1|\n+-+-+-+\n|*|*|2|\n+-+-+-+\n|3|*|2|\n+-+-+-+'
+      );
     });
   });
 });
