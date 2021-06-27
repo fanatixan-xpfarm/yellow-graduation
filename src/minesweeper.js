@@ -149,6 +149,9 @@ class Minesweeper {
     if (this.squares().some((square) => this.isOpenBomb(square))) {
       return STATE_IN_LOSE;
     }
+    if (this.squares().every((square) => square.opened || square.bomb)) {
+      return 'WIN';
+    }
 
     return STATE_IN_PROGRESS;
   }
