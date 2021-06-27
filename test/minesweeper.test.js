@@ -134,5 +134,22 @@ describe('Minesweeper', () => {
       expect(minesweeper.print()[25]).toBe('_');
       expect(minesweeper.print()[27]).toBe('1');
     });
+
+    test.each`
+      bombs                                | bombsReadable | stepRow | stepColumn | expectedBoard
+      ${[[0, 0, 1], [0, 0, 0], [0, 0, 0]]} | ${'0;2'}      | ${0}    | ${0}       | ${'+-+-+-+\n|_|1| |\n+-+-+-+\n|_|1|1|\n+-+-+-+\n|_|_|_|\n+-+-+-+'}
+    `(
+      'GIVEN bombs at $bombsReadable WHEN stepping on $stepRow;$stepColumn THEN the board should be \n$expectedBoard',
+      ({ bombs, stepRow, stepColumn, expectedBoard }) => {
+        // given
+        const minesweeper = new Minesweeper(bombs);
+
+        // when
+        minesweeper.step(stepRow, stepColumn);
+
+        // then
+        expect(minesweeper.print()).toBe(expectedBoard);
+      }
+    );
   });
 });
