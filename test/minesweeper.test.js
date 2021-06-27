@@ -186,5 +186,22 @@ describe('Minesweeper', () => {
       // then
       expect(state).toBe('LOSE');
     });
+
+    test('GIVEN all non-bombs opened WHEN checking game state THEN the result should be "WIN"', () => {
+      // given
+      const bombs = [
+        [0, 0, 1],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      const minesweeper = new Minesweeper(bombs);
+      minesweeper.step(0, 0);
+
+      // when
+      const state = minesweeper.getState();
+
+      // then
+      expect(state).toBe('WIN');
+    });
   });
 });
