@@ -176,7 +176,7 @@ so that I can start a new game after it ended.
   Then the result should be 'WIN'
 ```
 
-#### UAT6.4 ⚠
+#### UAT6.4 🚧
 
 ```
   Given a game with no steps on bombs and non-cleared squares

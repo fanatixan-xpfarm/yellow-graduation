@@ -237,5 +237,25 @@ describe('Minesweeper', () => {
         '+-+-+-+\n|2|2|1|\n+-+-+-+\n|*|*|2|\n+-+-+-+\n|3|*|2|\n+-+-+-+'
       );
     });
+
+    test('GIVEN non-ended game WHEN checking game state THEN the result should be "IN_PROGRESS" with board \n+-+-+-+\n|2| | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+', () => {
+      // given
+      const bombs = [
+        [0, 0, 0],
+        [1, 1, 0],
+        [0, 1, 0],
+      ];
+      const minesweeper = new Minesweeper(bombs);
+      minesweeper.step(0, 0);
+
+      // when
+      const state = minesweeper.getState();
+
+      // then
+      expect(state).toBe('IN_PROGRESS');
+      expect(minesweeper.print()).toBe(
+        '+-+-+-+\n|2| | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+'
+      );
+    });
   });
 });
