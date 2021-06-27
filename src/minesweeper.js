@@ -1,9 +1,15 @@
 class Minesweeper {
   print() {
-    return '+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+';
+    if (!this.stepped) {
+      return '+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+';
+    }
+
+    return '+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+';
   }
 
-  step() {}
+  step() {
+    this.stepped = true;
+  }
 }
 
 module.exports = Minesweeper;
