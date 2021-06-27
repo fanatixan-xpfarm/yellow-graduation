@@ -34,7 +34,10 @@ class Minesweeper {
   }
 
   printSquare(square) {
-    return square === 1 ? BOMB : CLOSED;
+    if (this.stepped && square === 1) {
+      return BOMB;
+    }
+    return CLOSED;
   }
 
   step() {
