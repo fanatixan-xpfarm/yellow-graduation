@@ -59,4 +59,23 @@ describe('Minesweeper', () => {
       }
     );
   });
+
+  describe('US4 - Stepping on non-bombs', () => {
+    test.each`
+      bombs                                | bombsReadable          | stepRow | stepColumn | expectedBoard
+      ${[[0, 0, 0], [1, 1, 0], [0, 1, 0]]} | ${'1;0, 1;1, and 2;1'} | ${2}    | ${0}       | ${'+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+\n|3| | |\n+-+-+-+'}
+    `(
+      'GIVEN bombs at $bombsReadable WHEN stepping on $stepRow;$stepColumn THEN the board should be \n$expectedBoard',
+      ({ bombs, stepRow, stepColumn, expectedBoard }) => {
+        // given
+        const minesweeper = new Minesweeper(bombs);
+
+        // when
+        minesweeper.step(stepRow, stepColumn);
+
+        // then
+        expect(minesweeper.print()).toBe(expectedBoard);
+      }
+    );
+  });
 });
