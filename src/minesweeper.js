@@ -145,7 +145,7 @@ class Minesweeper {
   }
 
   getState() {
-    if (this.squares().some((square) => square.opened && square.bomb)) {
+    if (this.squares().some((square) => this.isOpenBomb(square))) {
       return 'LOSE';
     }
 
@@ -154,6 +154,10 @@ class Minesweeper {
 
   squares() {
     return this.board.flat();
+  }
+
+  isOpenBomb(square) {
+    return square.opened && square.bomb;
   }
 }
 
