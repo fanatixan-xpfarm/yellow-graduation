@@ -107,11 +107,9 @@ class Minesweeper {
   }
 
   step(row, column) {
-    this.board[row][column].opened = true;
-    if (
-      !this.board[row][column].bomb &&
-      this.board[row][column].neighboringBombs === 0
-    ) {
+    const square = this.board[row][column];
+    square.opened = true;
+    if (!square.bomb && square.neighboringBombs === 0) {
       this.step(row, column + 1);
     }
   }
