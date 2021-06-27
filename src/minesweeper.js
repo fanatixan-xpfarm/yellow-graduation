@@ -94,6 +94,10 @@ class Minesweeper {
       return BOMB;
     }
 
+    if (square.neighboringBombs === 0) {
+      return '_';
+    }
+
     return square.neighboringBombs;
   }
 
