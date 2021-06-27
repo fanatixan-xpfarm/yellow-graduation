@@ -107,13 +107,7 @@ class Minesweeper {
   }
 
   step(row, column) {
-    if (!this.isValidCoordinate(row, column)) {
-      return;
-    }
     const square = this.board[row][column];
-    if (square.opened) {
-      return;
-    }
     square.opened = true;
     if (!square.bomb && square.neighboringBombs === 0) {
       this.openNeighbors(row, column);
@@ -122,7 +116,11 @@ class Minesweeper {
 
   openNeighbors(row, column) {
     for (let neighbor of NEIGHBORS) {
-      this.step(row + neighbor.rowOfset, column + neighbor.columnOfset);
+      const r = row + neighbor.rowOfset;
+      const c = column + neighbor.columnOfset;
+      if (this.isValidCoordinate(r, c) && !this.board[r][c].opened) {
+        this.step(r, c);
+      }
     }
   }
 
