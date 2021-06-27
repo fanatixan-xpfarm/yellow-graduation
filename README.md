@@ -48,7 +48,7 @@ so that I can start playing.
   Then the result should be an empty grid
 ```
 
-### US2 ⚠
+### US2 🚧
 
 ```
 As a player,
@@ -56,7 +56,7 @@ I want to know when I step on a bomb,
 so that I can start a new game.
 ```
 
-#### UAT2.1 ⚠
+#### UAT2.1 🚧
 
 ```
   Given a bomb

@@ -12,5 +12,5 @@
 
 - US1: board creation ✅
   - UAT1.1: board creation ✅
-- US2: stepping on a bomb ⚠
-  - UAT2.1: stepping on a bomb ⚠
+- US2: stepping on a bomb 🚧
+  - UAT2.1: stepping on a bomb 🚧

@@ -15,4 +15,18 @@ describe('Minesweeper', () => {
       );
     });
   });
+
+  describe('US2 - Stepping on bombs', () => {
+    test('GIVEN a bomb at 1;1 WHEN stepping on 1;1 THEN the board should be \n+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+', () => {
+      // given
+      const minesweeper = new Minesweeper([
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0],
+      ]);
+
+      // when
+      minesweeper.step();
+    });
+  });
 });
