@@ -20,6 +20,8 @@ const NEIGHBORS = [
   { rowOfset: 1, columnOfset: 1 },
 ];
 
+const STATE_IN_PROGRESS = 'IN_PROGRESS';
+
 class Minesweeper {
   constructor(bombs) {
     this.board = this.toBoard(bombs);
@@ -143,7 +145,7 @@ class Minesweeper {
   }
 
   getState() {
-    return 'IN_PROGRESS';
+    return STATE_IN_PROGRESS;
   }
 }
 
