@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.5",
     "jest-sonar-reporter": "^2.0.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "husky": "^6.0.0"
   }
 }
