@@ -96,7 +96,7 @@ I want to know the neighboring bomb count after stepping on a non-bomb square,
 so that I can continue to clear the board.
 ```
 
-#### UAT4.1 🚧
+#### UAT4.1 ✅
 
 ```
   Given a non-bomb square with adjacent bombs
