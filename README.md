@@ -168,7 +168,7 @@ so that I can start a new game after it ended.
   Then the result should be 'LOSE'
 ```
 
-#### UAT6.3 🚧
+#### UAT6.3 ✅
 
 ```
   Given a game with all non-bomb squares opened
