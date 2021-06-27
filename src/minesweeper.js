@@ -91,6 +91,10 @@ class Minesweeper {
       return CLOSED;
     }
 
+    return this.printOpenSquare(square);
+  }
+
+  printOpenSquare(square) {
     if (square.bomb) {
       return BOMB;
     }
