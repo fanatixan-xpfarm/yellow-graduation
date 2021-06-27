@@ -1,0 +1,29 @@
+name: complexity badge generation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-badge:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+      - name: Install dependencies
+        run: npm ci
+      - name: Generate badge data
+        run: badges/generate-complexity
+      - name: Deploy
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.BADGE_GIST_TOKEN }}
+          gist_id: c5ba284f879ad720d7282c71ff5af767
+          gist_file_name: complexity.json
+          file_path: badges/complexity.json

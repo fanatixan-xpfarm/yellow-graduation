@@ -1,0 +1,20 @@
+#!/bin/bash
+
+npx cr src
+
+node << EOS > badges/complexity.json
+
+const complexityReport = require('./complexity-report.json');
+const complexity = complexityReport.cyclomatic;
+const color = complexity > 4 ? 'red' : 'green';
+
+const badge = {
+  schemaVersion: 1,
+  label: 'complexity',
+  message: complexity.toString(),
+  color
+};
+
+console.log(JSON.stringify(badge));
+EOS
+
