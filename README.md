@@ -144,7 +144,7 @@ so that I can continue to clear the board.
   Then all neighboring squares should be revealed recursively on the board
 ```
 
-### US6 🚧
+### US6 ✅
 
 ```
 As a player,
