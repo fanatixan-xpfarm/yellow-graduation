@@ -52,13 +52,11 @@ class Minesweeper {
   }
 
   isBomb(bombs, row, column) {
-    return (
-      row >= 0 &&
-      row < 3 &&
-      column >= 0 &&
-      column < 3 &&
-      bombs[row][column] === 1
-    );
+    return this.isValidCoordinate(row, column) && bombs[row][column] === 1;
+  }
+
+  isValidCoordinate(row, column) {
+    return row >= 0 && row < 3 && column >= 0 && column < 3;
   }
 
   print() {
