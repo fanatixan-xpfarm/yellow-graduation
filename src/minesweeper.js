@@ -7,14 +7,16 @@ const NEW_LINE = '\n';
 
 class Minesweeper {
   constructor(bombs) {
-    this.board = bombs.map((row) =>
-      row.map((square) => {
-        return {
-          bomb: this.isBomb(square),
-          stepped: false,
-        };
-      })
-    );
+    this.board = bombs.map((bombsRow) => this.toBoardRow(bombsRow));
+  }
+
+  toBoardRow(bombsRow) {
+    return bombsRow.map((square) => {
+      return {
+        bomb: this.isBomb(square),
+        stepped: false,
+      };
+    });
   }
 
   isBomb(square) {
