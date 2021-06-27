@@ -53,6 +53,9 @@ describe('Minesweeper', () => {
 
         // when
         minesweeper.mark(markRow, markColumn);
+
+        // then
+        expect(minesweeper.print()).toBe(expectedBoard);
       }
     );
   });
