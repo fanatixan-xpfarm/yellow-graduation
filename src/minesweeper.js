@@ -2,6 +2,7 @@ const CLOSED = ' ';
 const BOMB = 'X';
 
 const SQUARE_SEPARATOR = '|';
+const ROW_SEPARATOR = '+-+-+-+';
 
 class Minesweeper {
   constructor(board) {
@@ -13,7 +14,8 @@ class Minesweeper {
     }
 
     return (
-      '+-+-+-+\n' +
+      ROW_SEPARATOR +
+      '\n' +
       this.board
         .map(
           (row) =>
@@ -23,8 +25,9 @@ class Minesweeper {
               .join(SQUARE_SEPARATOR) +
             SQUARE_SEPARATOR
         )
-        .join('\n+-+-+-+\n') +
-      '\n+-+-+-+'
+        .join('\n' + ROW_SEPARATOR + '\n') +
+      '\n' +
+      ROW_SEPARATOR
     );
   }
 
