@@ -160,7 +160,7 @@ so that I can start a new game after it ended.
   Then the result should be 'IN_PROGRESS'
 ```
 
-#### UAT6.2 🚧
+#### UAT6.2 ✅
 
 ```
   Given a step on a bomb
