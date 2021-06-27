@@ -80,7 +80,7 @@ I want to mark a square as bomb,
 so that I can prevent stepping on it.
 ```
 
-#### UAT3.1 🚧
+#### UAT3.1 ✅
 
 ```
   Given a non-open square
