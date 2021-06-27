@@ -72,7 +72,7 @@ so that I can start a new game.
   Then the board should contain a bomb sign only on that square
 ```
 
-### US3 🚧
+### US3 ✅
 
 ```
 As a player,
