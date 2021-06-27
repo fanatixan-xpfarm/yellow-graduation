@@ -21,55 +21,23 @@ describe('Minesweeper', () => {
   });
 
   describe('US2 - Stepping on bombs', () => {
-    test('GIVEN a bomb at 1;1 WHEN stepping on 1;1 THEN the board should be \n+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+', () => {
-      // given
-      const minesweeper = new Minesweeper([
-        [0, 0, 0],
-        [0, 1, 0],
-        [0, 0, 0],
-      ]);
+    test.each`
+      bombs                                | bombsReadable    | stepRow | stepColumn | expectedBoard
+      ${[[0, 0, 0], [0, 1, 0], [0, 0, 0]]} | ${'1;1'}         | ${1}    | ${1}       | ${'+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+'}
+      ${[[1, 0, 0], [0, 0, 0], [0, 0, 0]]} | ${'0;0'}         | ${0}    | ${0}       | ${'+-+-+-+\n|X| | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+'}
+      ${[[0, 0, 0], [0, 0, 1], [0, 1, 0]]} | ${'1;2 and 2;1'} | ${1}    | ${2}       | ${'+-+-+-+\n| | | |\n+-+-+-+\n| | |X|\n+-+-+-+\n| | | |\n+-+-+-+'}
+    `(
+      'GIVEN bombs at $bombsReadable WHEN stepping on $stepRow;$stepColumn THEN the board should be \n$expectedBoard',
+      ({ bombs, stepRow, stepColumn, expectedBoard }) => {
+        // given
+        const minesweeper = new Minesweeper(bombs);
 
-      // when
-      minesweeper.step(1, 1);
+        // when
+        minesweeper.step(stepRow, stepColumn);
 
-      // then
-      expect(minesweeper.print()).toBe(
-        '+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+'
-      );
-    });
-
-    test('GIVEN a bomb at 0;0 WHEN stepping on 0;0 THEN the board should be \n+-+-+-+\n|X| | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+', () => {
-      // given
-      const minesweeper = new Minesweeper([
-        [1, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-      ]);
-
-      // when
-      minesweeper.step(0, 0);
-
-      // then
-      expect(minesweeper.print()).toBe(
-        '+-+-+-+\n|X| | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+'
-      );
-    });
-
-    test('GIVEN bombs at 1;2 and 2;1 WHEN stepping on 1;2 THEN the board should be \n+-+-+-+\n| | | |\n+-+-+-+\n| | |X|\n+-+-+-+\n| | | |\n+-+-+-+', () => {
-      // given
-      const minesweeper = new Minesweeper([
-        [0, 0, 0],
-        [0, 0, 1],
-        [0, 1, 0],
-      ]);
-
-      // when
-      minesweeper.step(1, 2);
-
-      // then
-      expect(minesweeper.print()).toBe(
-        '+-+-+-+\n| | | |\n+-+-+-+\n| | |X|\n+-+-+-+\n| | | |\n+-+-+-+'
-      );
-    });
+        // then
+        expect(minesweeper.print()).toBe(expectedBoard);
+      }
+    );
   });
 });
