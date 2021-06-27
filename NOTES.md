@@ -19,7 +19,7 @@
 
 - US2: stepping on a bomb 🚧
   - UAT2.1: stepping on a bomb ✅
-  - UAT2.2: stepping on one of multiple bombs ⚠
+  - UAT2.2: stepping on one of multiple bombs 🚧
 - US3: marking square as bomb ⚠
   - UAT3.1: marking square as bomb ⚠
 - US4: clearing non-bomb squares ⚠

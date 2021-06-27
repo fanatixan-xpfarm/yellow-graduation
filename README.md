@@ -64,7 +64,7 @@ so that I can start a new game.
   Then the board should contain a bomb sign on the square
 ```
 
-#### UAT2.2 ⚠
+#### UAT2.2 🚧
 
 ```
   Given multiple bombs
