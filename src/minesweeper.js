@@ -80,15 +80,15 @@ class Minesweeper {
       return MARK;
     }
 
-    if (square.stepped && square.bomb) {
+    if (!square.stepped) {
+      return CLOSED;
+    }
+
+    if (square.bomb) {
       return BOMB;
     }
 
-    if (square.stepped) {
-      return square.neighboringBombs;
-    }
-
-    return CLOSED;
+    return square.neighboringBombs;
   }
 
   step(row, column) {
