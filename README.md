@@ -32,7 +32,7 @@ You don't have to mark all the bombs to win; you just need to open all non-bomb 
 
 ## Backlog
 
-### US1 ⚠
+### US1 🚧
 
 ```
 As a player,
@@ -40,7 +40,7 @@ I want to see an empty board after a new game,
 so that I can start playing.
 ```
 
-#### UAT1.1 ⚠
+#### UAT1.1 🚧
 
 ```
   Given a new game
