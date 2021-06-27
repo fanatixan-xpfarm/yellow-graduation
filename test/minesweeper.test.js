@@ -98,5 +98,21 @@ describe('Minesweeper', () => {
         '+-+-+-+\n| | | |\n+-+-+-+\n|*|*| |\n+-+-+-+\n|3|*| |\n+-+-+-+'
       );
     });
+
+    test('GIVEN a bomb at 0;2 WHEN stepping on 0;0 THEN the board should contain an empty cell at 0;0', () => {
+      // given
+      const bombs = [
+        [0, 0, 1],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      const minesweeper = new Minesweeper(bombs);
+
+      // when
+      minesweeper.step(0, 0);
+
+      // then
+      expect(minesweeper.print()[9]).toBe('_');
+    });
   });
 });
