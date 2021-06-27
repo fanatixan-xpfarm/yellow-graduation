@@ -18,6 +18,7 @@ class Minesweeper {
     return {
       bomb: this.isBomb(bombsSquare),
       stepped: false,
+      marked: false,
     };
   }
 
@@ -45,9 +46,14 @@ class Minesweeper {
   }
 
   printSquare(square) {
+    if (square.marked) {
+      return '*';
+    }
+
     if (square.stepped && square.bomb) {
       return BOMB;
     }
+
     return CLOSED;
   }
 
@@ -55,7 +61,9 @@ class Minesweeper {
     this.board[row][column].stepped = true;
   }
 
-  mark() {}
+  mark(row, column) {
+    this.board[row][column].marked = true;
+  }
 }
 
 module.exports = Minesweeper;
