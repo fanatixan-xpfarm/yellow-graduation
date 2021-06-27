@@ -46,7 +46,7 @@ class Minesweeper {
 
     return {
       bomb: this.isBomb(bombsSquare),
-      stepped: false,
+      opened: false,
       marked: false,
       neighboringBombs,
     };
@@ -80,7 +80,7 @@ class Minesweeper {
       return MARK;
     }
 
-    if (!square.stepped) {
+    if (!square.opened) {
       return CLOSED;
     }
 
@@ -92,7 +92,7 @@ class Minesweeper {
   }
 
   step(row, column) {
-    this.board[row][column].stepped = true;
+    this.board[row][column].opened = true;
   }
 
   mark(row, column) {
