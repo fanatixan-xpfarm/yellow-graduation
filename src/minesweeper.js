@@ -141,6 +141,8 @@ class Minesweeper {
   mark(row, column) {
     this.board[row][column].marked = true;
   }
+
+  getState() {}
 }
 
 module.exports = Minesweeper;
