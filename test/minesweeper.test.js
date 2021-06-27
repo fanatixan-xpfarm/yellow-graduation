@@ -115,4 +115,22 @@ describe('Minesweeper', () => {
       expect(minesweeper.print()[9]).toBe('_');
     });
   });
+
+  describe('US5 - Revealing neighbors of empty squares', () => {
+    test('GIVEN a bomb at 0;2 WHEN stepping on 0;0 THEN its neighbors should be revealed', () => {
+      // given
+      const bombs = [
+        [0, 0, 1],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      const minesweeper = new Minesweeper(bombs);
+
+      // when
+      minesweeper.step(0, 0);
+
+      // then
+      expect(minesweeper.print()[11]).toBe('1');
+    });
+  });
 });
