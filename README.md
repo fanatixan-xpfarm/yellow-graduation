@@ -48,7 +48,7 @@ so that I can start playing.
   Then the result should be an empty grid
 ```
 
-### US2 🚧
+### US2 ✅
 
 ```
 As a player,
