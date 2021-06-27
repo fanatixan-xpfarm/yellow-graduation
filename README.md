@@ -40,7 +40,7 @@ I want to see an empty board after a new game,
 so that I can start playing.
 ```
 
-#### UAT1.1 🚧
+#### UAT1.1 ✅
 
 ```
   Given a new game
