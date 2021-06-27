@@ -142,7 +142,9 @@ class Minesweeper {
     this.board[row][column].marked = true;
   }
 
-  getState() {}
+  getState() {
+    return 'IN_PROGRESS';
+  }
 }
 
 module.exports = Minesweeper;
