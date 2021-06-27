@@ -107,10 +107,14 @@ class Minesweeper {
   }
 
   step(row, column) {
+    if (!this.isValidCoordinate(row, column)) {
+      return;
+    }
     const square = this.board[row][column];
     square.opened = true;
     if (!square.bomb && square.neighboringBombs === 0) {
       this.step(row, column + 1);
+      this.step(row + 1, column);
     }
   }
 
