@@ -111,10 +111,14 @@ class Minesweeper {
       return;
     }
     const square = this.board[row][column];
+    if (square.opened) {
+      return;
+    }
     square.opened = true;
     if (!square.bomb && square.neighboringBombs === 0) {
-      this.step(row, column + 1);
-      this.step(row + 1, column);
+      for (let neighbor of NEIGHBORS) {
+        this.step(row + neighbor.rowOfset, column + neighbor.columnOfset);
+      }
     }
   }
 
