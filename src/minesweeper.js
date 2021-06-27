@@ -122,10 +122,16 @@ class Minesweeper {
     for (let neighbor of NEIGHBORS) {
       const r = row + neighbor.rowOfset;
       const c = column + neighbor.columnOfset;
-      if (this.isValidCoordinate(r, c) && !this.board[r][c].opened) {
+      if (this.shouldOpenNeighbor(r, c)) {
         this.step(r, c);
       }
     }
+  }
+
+  shouldOpenNeighbor(row, column) {
+    return (
+      this.isValidCoordinate(row, column) && !this.board[row][column].opened
+    );
   }
 
   mark(row, column) {
