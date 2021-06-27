@@ -112,7 +112,7 @@ so that I can continue to clear the board.
   Then the board should contain the number of adjacent bombs on the square
 ```
 
-#### UAT4.3 🚧
+#### UAT4.3 ✅
 
 ```
   Given a square without any adjacent bombs
