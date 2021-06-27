@@ -107,6 +107,14 @@ so that I can continue to clear the board.
 #### UAT4.2 ⚠
 
 ```
+  Given a non-bomb square with adjacent marked bombs
+  When stepping on it
+  Then the board should contain the number of adjacent bombs on the square
+```
+
+#### UAT4.3 ⚠
+
+```
   Given a square without any adjacent bombs
   When stepping on it
   Then the board should contain an empty sign on the square
