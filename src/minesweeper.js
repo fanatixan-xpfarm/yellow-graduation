@@ -3,6 +3,7 @@ const BOMB = 'X';
 
 const SQUARE_SEPARATOR = '|';
 const ROW_SEPARATOR = '+-+-+-+';
+const NEW_LINE = '\n';
 
 class Minesweeper {
   constructor(board) {
@@ -15,7 +16,7 @@ class Minesweeper {
 
     return (
       ROW_SEPARATOR +
-      '\n' +
+      NEW_LINE +
       this.board
         .map(
           (row) =>
@@ -25,8 +26,8 @@ class Minesweeper {
               .join(SQUARE_SEPARATOR) +
             SQUARE_SEPARATOR
         )
-        .join('\n' + ROW_SEPARATOR + '\n') +
-      '\n' +
+        .join(NEW_LINE + ROW_SEPARATOR + NEW_LINE) +
+      NEW_LINE +
       ROW_SEPARATOR
     );
   }
