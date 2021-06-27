@@ -21,7 +21,8 @@ const NEIGHBORS = [
 ];
 
 const STATE_IN_PROGRESS = 'IN_PROGRESS';
-const STATE_IN_LOSE = 'LOSE';
+const STATE_LOSE = 'LOSE';
+const STATE_WIN = 'WIN';
 
 class Minesweeper {
   constructor(bombs) {
@@ -147,10 +148,10 @@ class Minesweeper {
 
   getState() {
     if (this.squares().some((square) => this.isOpenBomb(square))) {
-      return STATE_IN_LOSE;
+      return STATE_LOSE;
     }
     if (this.squares().every((square) => square.opened || square.bomb)) {
-      return 'WIN';
+      return STATE_WIN;
     }
 
     return STATE_IN_PROGRESS;
