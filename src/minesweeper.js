@@ -116,9 +116,13 @@ class Minesweeper {
     }
     square.opened = true;
     if (!square.bomb && square.neighboringBombs === 0) {
-      for (let neighbor of NEIGHBORS) {
-        this.step(row + neighbor.rowOfset, column + neighbor.columnOfset);
-      }
+      this.openNeighbors(row, column);
+    }
+  }
+
+  openNeighbors(row, column) {
+    for (let neighbor of NEIGHBORS) {
+      this.step(row + neighbor.rowOfset, column + neighbor.columnOfset);
     }
   }
 
