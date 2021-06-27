@@ -152,7 +152,7 @@ I want to know the game state,
 so that I can start a new game after it ended.
 ```
 
-#### UAT6.1 🚧
+#### UAT6.1 ✅
 
 ```
   Given a new game
