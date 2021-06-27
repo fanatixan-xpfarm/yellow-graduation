@@ -8,6 +8,11 @@ describe('Minesweeper', () => {
 
       // when
       const board = minesweeper.print();
+
+      // then
+      expect(board).toBe(
+        '+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+'
+      );
     });
   });
 });
