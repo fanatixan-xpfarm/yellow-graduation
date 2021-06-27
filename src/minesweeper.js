@@ -11,12 +11,14 @@ class Minesweeper {
   }
 
   toBoardRow(bombsRow) {
-    return bombsRow.map((square) => {
-      return {
-        bomb: this.isBomb(square),
-        stepped: false,
-      };
-    });
+    return bombsRow.map((bombsSquare) => this.toBoardSquare(bombsSquare));
+  }
+
+  toBoardSquare(bombsSquare) {
+    return {
+      bomb: this.isBomb(bombsSquare),
+      stepped: false,
+    };
   }
 
   isBomb(square) {
