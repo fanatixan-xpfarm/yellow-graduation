@@ -1,6 +1,7 @@
 const CLOSED = ' ';
 const BOMB = 'X';
 const MARK = '*';
+const EMPTY = '_';
 
 const SQUARE_SEPARATOR = '|';
 const ROW_SEPARATOR = '+-+-+-+';
@@ -95,7 +96,7 @@ class Minesweeper {
     }
 
     if (square.neighboringBombs === 0) {
-      return '_';
+      return EMPTY;
     }
 
     return square.neighboringBombs;
