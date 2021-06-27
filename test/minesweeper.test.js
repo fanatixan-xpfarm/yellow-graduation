@@ -131,6 +131,7 @@ describe('Minesweeper', () => {
 
       // then
       expect(minesweeper.print()[11]).toBe('1');
+      expect(minesweeper.print()[25]).toBe('_');
     });
   });
 });
