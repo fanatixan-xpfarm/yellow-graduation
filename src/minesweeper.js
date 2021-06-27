@@ -1,5 +1,6 @@
 const CLOSED = ' ';
 const BOMB = 'X';
+const MARK = '*';
 
 const SQUARE_SEPARATOR = '|';
 const ROW_SEPARATOR = '+-+-+-+';
@@ -47,7 +48,7 @@ class Minesweeper {
 
   printSquare(square) {
     if (square.marked) {
-      return '*';
+      return MARK;
     }
 
     if (square.stepped && square.bomb) {
