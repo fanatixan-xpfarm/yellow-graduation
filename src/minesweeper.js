@@ -28,11 +28,13 @@ class Minesweeper {
   printRow(row) {
     return (
       SQUARE_SEPARATOR +
-      row
-        .map((square) => (square === 1 ? BOMB : CLOSED))
-        .join(SQUARE_SEPARATOR) +
+      row.map((square) => this.printSquare(square)).join(SQUARE_SEPARATOR) +
       SQUARE_SEPARATOR
     );
+  }
+
+  printSquare(square) {
+    return square === 1 ? BOMB : CLOSED;
   }
 
   step() {
