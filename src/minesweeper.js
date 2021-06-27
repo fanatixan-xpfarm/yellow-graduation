@@ -145,6 +145,10 @@ class Minesweeper {
   }
 
   getState() {
+    if (this.board.flat().some((square) => square.opened && square.bomb)) {
+      return 'LOSE';
+    }
+
     return STATE_IN_PROGRESS;
   }
 }
