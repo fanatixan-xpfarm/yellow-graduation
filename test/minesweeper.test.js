@@ -47,7 +47,7 @@ describe('Minesweeper', () => {
       ]);
 
       // when
-      minesweeper.step(1, 1);
+      minesweeper.step(0, 0);
 
       // then
       expect(minesweeper.print()).toBe(

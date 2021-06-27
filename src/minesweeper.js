@@ -6,8 +6,19 @@ const ROW_SEPARATOR = '+-+-+-+';
 const NEW_LINE = '\n';
 
 class Minesweeper {
-  constructor(board) {
-    this.board = board;
+  constructor(bombs) {
+    this.board = bombs.map((row) =>
+      row.map((square) => {
+        return {
+          bomb: this.isBomb(square),
+          stepped: false,
+        };
+      })
+    );
+  }
+
+  isBomb(square) {
+    return square === 1;
   }
   print() {
     return (
@@ -30,18 +41,14 @@ class Minesweeper {
   }
 
   printSquare(square) {
-    if (this.stepped && this.isBomb(square)) {
+    if (square.stepped && square.bomb) {
       return BOMB;
     }
     return CLOSED;
   }
 
-  isBomb(square) {
-    return square === 1;
-  }
-
-  step() {
-    this.stepped = true;
+  step(row, column) {
+    this.board[row][column].stepped = true;
   }
 }
 
