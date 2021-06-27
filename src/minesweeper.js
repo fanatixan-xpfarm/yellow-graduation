@@ -1,4 +1,5 @@
-function dummy() {
+class Minesweeper {
+  print() {}
 }
 
-module.exports = dummy;
+module.exports = Minesweeper;
