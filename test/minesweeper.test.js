@@ -26,7 +26,12 @@ describe('Minesweeper', () => {
       ]);
 
       // when
-      minesweeper.step();
+      minesweeper.step(1, 1);
+
+      // then
+      expect(minesweeper.print()).toBe(
+        '+-+-+-+\n| | | |\n+-+-+-+\n| |X| |\n+-+-+-+\n| | | |\n+-+-+-+'
+      );
     });
   });
 });
