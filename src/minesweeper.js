@@ -1,5 +1,7 @@
 class Minesweeper {
-  print() {}
+  print() {
+    return '+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+';
+  }
 }
 
 module.exports = Minesweeper;
