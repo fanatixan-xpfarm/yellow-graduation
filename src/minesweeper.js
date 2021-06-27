@@ -8,18 +8,47 @@ const NEW_LINE = '\n';
 
 class Minesweeper {
   constructor(bombs) {
-    this.board = bombs.map((bombsRow) => this.toBoardRow(bombsRow));
+    this.board = this.toBoard(bombs);
   }
 
-  toBoardRow(bombsRow) {
-    return bombsRow.map((bombsSquare) => this.toBoardSquare(bombsSquare));
+  toBoard(bombs) {
+    const result = [[], [], []];
+    for (let row = 0; row < 3; row++) {
+      for (let column = 0; column < 3; column++) {
+        result[row][column] = this.toBoardSquare(bombs, row, column);
+      }
+    }
+    return result;
   }
 
-  toBoardSquare(bombsSquare) {
+  toBoardSquare(bombs, row, column) {
+    const bombsSquare = bombs[row][column];
+
+    let neighboringBombs = 0;
+    const neighbors = [
+      { rowOfset: -1, columnOfset: -1 },
+      { rowOfset: -1, columnOfset: 0 },
+      { rowOfset: -1, columnOfset: 1 },
+      { rowOfset: 0, columnOfset: -1 },
+      { rowOfset: 0, columnOfset: 1 },
+      { rowOfset: 1, columnOfset: -1 },
+      { rowOfset: 1, columnOfset: 0 },
+      { rowOfset: 1, columnOfset: 1 },
+    ];
+
+    for (let neighbor of neighbors) {
+      const r = row + neighbor.rowOfset;
+      const c = column + neighbor.columnOfset;
+      if (r >= 0 && r < 3 && c >= 0 && c < 3 && this.isBomb(bombs[r][c])) {
+        neighboringBombs++;
+      }
+    }
+
     return {
       bomb: this.isBomb(bombsSquare),
       stepped: false,
       marked: false,
+      neighboringBombs,
     };
   }
 
@@ -53,6 +82,10 @@ class Minesweeper {
 
     if (square.stepped && square.bomb) {
       return BOMB;
+    }
+
+    if (square.stepped) {
+      return square.neighboringBombs;
     }
 
     return CLOSED;
