@@ -24,3 +24,12 @@
   - UAT3.1: marking square as bomb ✅
 - US4: clearing non-bomb squares 🚧
   - UAT4.1: clearing squares with neighboring bombs 🚧
+
+### Pomodoro 3
+
+- US4: clearing non-bomb squares 🚧
+  - UAT4.1: clearing squares with neighboring bombs 🚧
+  - UAT4.2: clearing squares with marked neighboring bombs ⚠
+  - UAT4.3: clearing squares with 0 neighboring bombs ⚠
+- US5: revealing neighbors of squares with 0 neighbors ⚠
+  - UAT5.1: all neighbors are revealed ⚠
