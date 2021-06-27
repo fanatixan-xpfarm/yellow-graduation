@@ -120,11 +120,15 @@ class Minesweeper {
 
   openNeighbors(row, column) {
     for (let neighbor of NEIGHBORS) {
-      const r = row + neighbor.rowOfset;
-      const c = column + neighbor.columnOfset;
-      if (this.shouldOpenNeighbor(r, c)) {
-        this.step(r, c);
-      }
+      this.openNeighbor(row, column, neighbor);
+    }
+  }
+
+  openNeighbor(row, column, neighbor) {
+    const r = row + neighbor.rowOfset;
+    const c = column + neighbor.columnOfset;
+    if (this.shouldOpenNeighbor(r, c)) {
+      this.step(r, c);
     }
   }
 
