@@ -6,6 +6,17 @@ const SQUARE_SEPARATOR = '|';
 const ROW_SEPARATOR = '+-+-+-+';
 const NEW_LINE = '\n';
 
+const NEIGHBORS = [
+  { rowOfset: -1, columnOfset: -1 },
+  { rowOfset: -1, columnOfset: 0 },
+  { rowOfset: -1, columnOfset: 1 },
+  { rowOfset: 0, columnOfset: -1 },
+  { rowOfset: 0, columnOfset: 1 },
+  { rowOfset: 1, columnOfset: -1 },
+  { rowOfset: 1, columnOfset: 0 },
+  { rowOfset: 1, columnOfset: 1 },
+];
+
 class Minesweeper {
   constructor(bombs) {
     this.board = this.toBoard(bombs);
@@ -25,18 +36,8 @@ class Minesweeper {
     const bombsSquare = bombs[row][column];
 
     let neighboringBombs = 0;
-    const neighbors = [
-      { rowOfset: -1, columnOfset: -1 },
-      { rowOfset: -1, columnOfset: 0 },
-      { rowOfset: -1, columnOfset: 1 },
-      { rowOfset: 0, columnOfset: -1 },
-      { rowOfset: 0, columnOfset: 1 },
-      { rowOfset: 1, columnOfset: -1 },
-      { rowOfset: 1, columnOfset: 0 },
-      { rowOfset: 1, columnOfset: 1 },
-    ];
 
-    for (let neighbor of neighbors) {
+    for (let neighbor of NEIGHBORS) {
       const r = row + neighbor.rowOfset;
       const c = column + neighbor.columnOfset;
       if (r >= 0 && r < 3 && c >= 0 && c < 3 && this.isBomb(bombs[r][c])) {
