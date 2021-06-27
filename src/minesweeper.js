@@ -6,6 +6,8 @@ const SQUARE_SEPARATOR = '|';
 const ROW_SEPARATOR = '+-+-+-+';
 const NEW_LINE = '\n';
 
+const BOARD_SIZE = 3;
+
 const NEIGHBORS = [
   { rowOfset: -1, columnOfset: -1 },
   { rowOfset: -1, columnOfset: 0 },
@@ -24,8 +26,8 @@ class Minesweeper {
 
   toBoard(bombs) {
     const result = [[], [], []];
-    for (let row = 0; row < 3; row++) {
-      for (let column = 0; column < 3; column++) {
+    for (let row = 0; row < BOARD_SIZE; row++) {
+      for (let column = 0; column < BOARD_SIZE; column++) {
         result[row][column] = this.toBoardSquare(bombs, row, column);
       }
     }
@@ -56,7 +58,7 @@ class Minesweeper {
   }
 
   isValidCoordinate(row, column) {
-    return row >= 0 && row < 3 && column >= 0 && column < 3;
+    return row >= 0 && row < BOARD_SIZE && column >= 0 && column < BOARD_SIZE;
   }
 
   print() {
