@@ -56,7 +56,7 @@ I want to know when I step on a bomb,
 so that I can start a new game.
 ```
 
-#### UAT2.1 🚧
+#### UAT2.1 ✅
 
 ```
   Given a bomb
